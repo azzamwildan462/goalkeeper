@@ -1,5 +1,5 @@
-#ifndef BS_UTILS_H
-#define BS_UTILS_H
+#ifndef GK_UTILS_H
+#define GK_UTILS_H
 
 #define PREP_KICKOFF_HOME 'K'
 #define PREP_KICKOFF_AWAY 'k'
@@ -10,5 +10,11 @@
 #define START_KICKOFF_AWAY PREP_KICKOFF_AWAY + 128
 #define START_FREEKICK_HOME PREP_FREEKICK_HOME + 128
 #define START_FREEKICK_AWAY PREP_FREEKICK_AWAY + 128
+
+#define FIELD_X_1 800
+#define FIELD_Y_1 1200
+
+#define FIELD_X_1_2 FIELD_X_1 / 2
+#define FIELD_Y_1_2 FIELD_Y_1 / 2
 
 #endif
