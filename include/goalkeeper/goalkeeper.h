@@ -25,8 +25,8 @@ extern "C"
         int16_t robot_y[6];
         int16_t robot_th[6];
         uint8_t robot_num;
-        int16_t ball_x;
-        int16_t ball_y;
+        float ball_x;
+        float ball_y;
         char obs[15];
         uint8_t total_obs;
         uint8_t game_status;
@@ -47,10 +47,10 @@ extern "C"
 
     } gk_ret_t;
 
-    void gk_prep_kickoff_home(gk_data_t *data, gk_ret_t *ret);
-    void gk_start_kickoff_home(gk_data_t *data, gk_ret_t *ret);
+    void GkPrepKickoffHome(gk_data_t *data, gk_ret_t *ret);
+    void GkKickoffHome(gk_data_t *data, gk_ret_t *ret);
 
-    void gk_run(gk_data_t *data, gk_ret_t *ret);
+    void GkRun(gk_data_t *data, gk_ret_t *ret);
 
 #ifdef __cplusplus
 }
