@@ -17,5 +17,5 @@ include_directories(
 )
 
 ## Declare a C++ library
-add_library(${PROJECT_NAME}_lib src/${PROJECT_NAME}.c)
+add_library(${PROJECT_NAME}_lib src/${PROJECT_NAME}.cpp)
 target_link_libraries(${PROJECT_NAME}_lib ${catkin_LIBRARIES} motion_lib)

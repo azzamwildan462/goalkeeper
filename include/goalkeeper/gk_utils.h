@@ -1,17 +1,26 @@
 #ifndef GK_UTILS_H
 #define GK_UTILS_H
 
-#define PREP_KICKOFF_HOME 'K'
-#define PREP_KICKOFF_AWAY 'k'
-#define PREP_FREEKICK_HOME 'F'
-#define PREP_FREEKICK_AWAY 'f'
+#define preparation_kickoff_home 'K'
+#define preparation_kickoff_away 'k'
+#define preparation_freekick_home 'F'
+#define preparation_freekick_away 'f'
 
 #define command_stop 'S'
+#define command_stop_2 ' '
 
-#define START_KICKOFF_HOME PREP_KICKOFF_HOME + 128
-#define START_KICKOFF_AWAY PREP_KICKOFF_AWAY + 128
-#define START_FREEKICK_HOME PREP_FREEKICK_HOME + 128
-#define START_FREEKICK_AWAY PREP_FREEKICK_AWAY + 128
+//---Manual Commands
+#define command_forward 'j'
+#define command_backward 'n'
+#define command_left 'b'
+#define command_right 'm'
+#define command_rotate_left '9'
+#define command_rotate_right '0'
+
+#define start_kickoff_home preparation_kickoff_home + 128
+#define start_kickoff_away preparation_kickoff_away + 128
+#define start_freekick_home preparation_freekick_home + 128
+#define start_freekick_away preparation_freekick_away + 128
 
 #define FIELD_X_1 800
 #define FIELD_Y_1 1200
