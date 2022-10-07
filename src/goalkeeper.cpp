@@ -6,13 +6,35 @@ motion_return_t motion_ret;
 
 void GkPrepKickoffHome(gk_data_t *data, gk_ret_t *ret)
 {
-    motion.vel_x = 10;
-    motion.vel_y = 100;
+    // motion.vel_x = 10;
+    // motion.vel_y = 10;
     motion.vel_th = 1;
+    motion.vel_position = 10;
     motion.acceleration = 2;
-    // printf("GK_Prep_kickoff: %d %d\n", data->robot_x[data->robot_num], data->robot_y[data->robot_num]);
-    // printf("Ball data: %f %f\n", data->ball_x, data->ball_y);
-    ManualMotion(&motion, &motion_ret);
+    motion.target_x = 0;
+    motion.target_y = 100;
+    motion.target_th = 0;
+    
+
+    static uint8_t stat_preparation_kickoff_home;
+    
+    printf("Stat preparation kickoff home: %d\n", stat_preparation_kickoff_home);
+
+    switch (stat_preparation_kickoff_home)
+    {
+    case 0:
+        if (PositionAngularMotion(&motion, &motion_ret))
+        {
+            stat_preparation_kickoff_home = 1;
+        }
+        break;
+
+    case 1:
+        GkStop(data, ret);
+
+    default:
+        break;
+    }
     // PositionAngularMotion(&motion, &motion_ret, data);
     // printf("Motion data: %d %d %d\n", motion_ret.vx, motion_ret.vy, motion_ret.vth);
     static uint16_t main_state;
@@ -41,6 +63,7 @@ void GkKickoffHome(gk_data_t *data, gk_ret_t *ret)
 
 void GkStop(gk_data_t *data, gk_ret_t *ret)
 {
+    printf("Masuk GK Stop di posisi: %d %d %d\n", pos_robot[0], pos_robot[1], pos_robot[2]);
     // printf("GK_Stop: %d %d\n", data->robot_x[data->robot_num], data->robot_y[data->robot_num]);
     motion.vel_x = 0;
     motion.vel_y = 0;
@@ -57,44 +80,45 @@ void GkStop(gk_data_t *data, gk_ret_t *ret)
  */
 void GkManual(gk_data_t *data, gk_ret_t *ret, uint8_t switch_mode)
 {
-    // printf("GK_ManualForward: %d %d\n", data->robot_x[data->robot_num], data->robot_y[data->robot_num]);
-    
+    // printf("GK_Manual: %d %d\n", data->robot_x[data->robot_num], data->robot_y[data->robot_num]);
+
     if (switch_mode == 1)
     {
         motion.vel_x = 0;
         motion.vel_y = 10;
-        motion.vel_th = 0;        
+        motion.vel_th = 0;
     }
-    else if(switch_mode == 2)
+    else if (switch_mode == 2)
     {
         motion.vel_x = 0;
         motion.vel_y = -10;
-        motion.vel_th = 0;        
+        motion.vel_th = 0;
     }
-    else if(switch_mode == 3)
+    else if (switch_mode == 3)
     {
         motion.vel_x = -10;
         motion.vel_y = 0;
-        motion.vel_th = 0;        
+        motion.vel_th = 0;
     }
-    else if(switch_mode == 4)
+    else if (switch_mode == 4)
     {
         motion.vel_x = 10;
         motion.vel_y = 0;
-        motion.vel_th = 0;        
+        motion.vel_th = 0;
     }
-    else if(switch_mode == 5)
+    else if (switch_mode == 5)
     {
         motion.vel_x = 0;
         motion.vel_y = 0;
-        motion.vel_th = 10;        
+        motion.vel_th = 10;
     }
-    else if(switch_mode == 6)
+    else if (switch_mode == 6)
     {
         motion.vel_x = 0;
         motion.vel_y = 0;
-        motion.vel_th = -10;        
+        motion.vel_th = -10;
     }
+    printf("Motion data: %d %d %d\n", motion.vel_x, motion.vel_y, motion.vel_th);
     motion.acceleration = 2;
     ManualMotion(&motion, &motion_ret);
     ret->vel_x_gain = motion_ret.vx;

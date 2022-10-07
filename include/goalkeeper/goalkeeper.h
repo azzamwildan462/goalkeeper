@@ -18,6 +18,8 @@ extern "C"
 #include <stdint.h>
 #include "goalkeeper/gk_utils.h"
 
+    // extern float pos_robot[3];
+
     // Data to be proceed to make robot's decision
     typedef struct gk_data_tag
     {
@@ -49,7 +51,7 @@ extern "C"
 
     void GkPrepKickoffHome(gk_data_t *data, gk_ret_t *ret);
     void GkKickoffHome(gk_data_t *data, gk_ret_t *ret);
-
+    void GkStop(gk_data_t *data, gk_ret_t *ret);
     void GkRun(gk_data_t *data, gk_ret_t *ret);
 
 #ifdef __cplusplus
