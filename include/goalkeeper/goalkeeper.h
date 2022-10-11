@@ -8,54 +8,14 @@
 #ifndef GOALKEEPER_H
 #define GOALKEEPER_H
 
-#ifdef __cplusplus
-extern "C"
-{
-#endif
-
 #include <stdio.h>
 #include <string.h>
 #include <stdint.h>
-#include "goalkeeper/gk_utils.h"
+#include "multirole_func/multirole_func.h"
+#include "motion/motion.h"
 
-    // extern float pos_robot[3];
+extern float pos_robot[3];
 
-    // Data to be proceed to make robot's decision
-    typedef struct gk_data_tag
-    {
-        int16_t robot_x[6];
-        int16_t robot_y[6];
-        int16_t robot_th[6];
-        uint8_t robot_num;
-        float ball_x;
-        float ball_y;
-        char obs[15];
-        uint8_t total_obs;
-        uint8_t game_status;
 
-    } gk_data_t;
-
-    typedef struct gk_ret_tag
-    {
-        uint8_t act_type;
-        int16_t target_x;
-        int16_t target_y;
-        int16_t target_th;
-        int16_t dist_to_target;
-        int16_t angle_to_target;
-        int8_t vel_x_gain;
-        int8_t vel_y_gain;
-        int8_t vel_th_gain;
-
-    } gk_ret_t;
-
-    void GkPrepKickoffHome(gk_data_t *data, gk_ret_t *ret);
-    void GkKickoffHome(gk_data_t *data, gk_ret_t *ret);
-    void GkStop(gk_data_t *data, gk_ret_t *ret);
-    void GkRun(gk_data_t *data, gk_ret_t *ret);
-
-#ifdef __cplusplus
-}
-#endif
 
 #endif

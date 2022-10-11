@@ -5,6 +5,8 @@ add_compile_options(-std=c++11)
 
 find_package(catkin REQUIRED COMPONENTS
   motion
+  multirole_func
+  utils
 )
 
 catkin_package(
@@ -18,4 +20,4 @@ include_directories(
 
 ## Declare a C++ library
 add_library(${PROJECT_NAME}_lib src/${PROJECT_NAME}.cpp)
-target_link_libraries(${PROJECT_NAME}_lib ${catkin_LIBRARIES} motion_lib)
+target_link_libraries(${PROJECT_NAME}_lib ${catkin_LIBRARIES} motion_lib multirole_func_lib utils_lib)
