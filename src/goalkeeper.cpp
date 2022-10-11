@@ -64,7 +64,6 @@ void GkKickoffHome(gk_data_t *data, gk_ret_t *ret)
 void GkStop(gk_data_t *data, gk_ret_t *ret)
 {
     printf("Masuk GK Stop di posisi: %d %d %d\n", pos_robot[0], pos_robot[1], pos_robot[2]);
-    // printf("GK_Stop: %d %d\n", data->robot_x[data->robot_num], data->robot_y[data->robot_num]);
     motion.vel_x = 0;
     motion.vel_y = 0;
     motion.vel_th = 0;
